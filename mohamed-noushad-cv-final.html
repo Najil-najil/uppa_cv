@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0.5px;
+        }
+
+        .name {
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase;
+
+        }
+
+        .job-title {
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0 0 2px 0;
+        }
+
+        .header-bar {
+            background-color: #777;
+            color: white;
+            padding: 8px 20px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .header-item {
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        .section-header {
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: -12px 0 -12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-header::after {
+            content: "";
+            flex-grow: 1;
+            height: 1px;
+            background-color: black;
+            margin-left: 10px;
+        }
+
+        .section-header-skills {
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: -5px 0 -12px;
+            display: flex;
+            align-items: center;
+            margin-left: -12px;
+        }
+
+        .section-header-skills::after {
+            content: "";
+            flex-grow: 1;
+            height: 0.5px;
+            background-color: black;
+            margin-left: 10px;
+        }
+
+        .section-header-personal {
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: -15px 0 -12px;
+            display: flex;
+            align-items: center;
+            margin-left: -12px;
+        }
+
+        .section-header-personal::after {
+            content: "";
+            flex-grow: 1;
+            height: 0.5px;
+            background-color: black;
+            margin-left: 10px;
+        }
+
+        .section-header-edu {
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: -12px 0 -12px;
+            display: flex;
+            align-items: center;
+            margin-left: -12px;
+        }
+
+        .section-header-edu::after {
+            content: "";
+            flex-grow: 1;
+            height: 0.5px;
+            background-color: black;
+            margin-left: 10px;
+        }
+
+        .section-header-end {
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: -2px 0 -12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-header-end::after {
+            content: "";
+            flex-grow: 1;
+            height: 1px;
+            background-color: #000;
+            margin-left: 10px;
+        }
+
+        .content-area {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .left-column {
+            flex: 65%;
+            padding-right: 20px;
+            position: relative;
+        }
+
+        .vertical-line {
+            position: absolute;
+            left: 6px;
+            top: 20px;
+            bottom: 20px;
+            width: 2px;
+            background-color: #999;
+            height: 550px;
+        }
+
+        .vertical-line-end {
+            position: absolute;
+            left: 6px;
+            top: 600px;
+            bottom: 20px;
+            width: 2px;
+            background-color: #999;
+            height: 52px;
+        }
+
+        .right-column {
+            flex: 35%;
+            background-color: #f5f5f5;
+            padding: 10px 25px 5px;
+            margin-top: -12px;
+            border-radius: 15px;
+            height: 660px;
+        }
+
+        .experience-item {
+            margin-bottom: -5px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .company-name {
+            margin-top: 5px;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: -5px;
+        }
+
+        .company-details {
+            font-size: 13px;
+            color: #777;
+            font-style: italic;
+            margin-bottom: -10px;
+        }
+
+        .position-title {
+            font-weight: bold;
+            margin-bottom: -5px;
+        }
+
+        .position-dates {
+            margin-bottom: 10px;
+        }
+
+        .bullet-list {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .bullet-list li {
+            padding: -2px 0;
+            font-size: 14px;
+        }
+
+        .education-section {
+            margin-bottom: -2px;
+            margin-left: -12px;
+        }
+
+        .degree {
+            font-weight: bold;
+            margin-bottom: -5px;
+        }
+
+        .school {
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .skills-list {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 5px 0;
+            margin-left: -12px;
+        }
+
+        .skills-list li {
+            padding: -3px 0;
+            font-size: 14px;
+        }
+
+        .languages-list {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 5px 0;
+            margin-left: -12px;
+        }
+
+        .languages-list li {
+            padding: -3px 0;
+            font-size: 14px;
+        }
+
+        .languages-list-right {
+            list-style-type: disc;
+            padding-left: 130px;
+            margin-top: -47px;
+            margin-left: -12px;
+        }
+
+        .languages-list-right li {
+            padding: -3px 0;
+            font-size: 14px;
+        }
+
+        .personal-info {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 5px 0;
+            margin-left: -12px;
+        }
+
+        .personal-info li {
+            padding: -3px 0;
+            font-size: 14px;
+        }
+
+        .marker {
+            width: 12px;
+            height: 12px;
+            background-color: #666;
+            display: inline-block;
+            position: absolute;
+            left: 1.2px;
+            top: 7px;
+        }
+
+        .marker-end {
+            width: 12px;
+            height: 12px;
+            background-color: #666;
+            display: inline-block;
+            position: absolute;
+            left: 1.2px;
+            top: 645px;
+        }
+
+        .marker-point {
+            width: 12px;
+            height: 2px;
+            background-color: #666;
+            display: inline-block;
+            position: absolute;
+            left: 1.2px;
+            top: 570px;
+        }
+
+        .marker-point-end-top {
+            width: 12px;
+            height: 2px;
+            background-color: #666;
+            display: inline-block;
+            position: absolute;
+            left: 1.2px;
+            top: 600px;
+        }
+
+        .marker-point-end-bottom {
+            width: 12px;
+            height: 2px;
+            background-color: #666;
+            display: inline-block;
+            position: absolute;
+            left: 1.2px;
+            top: 665px;
+        }
+
+        .profile-summary {
+            margin: 10px 0 20px;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        /* ended */
+        .marker-point-x {
+            width: 1.5px;
+            height: 12px;
+            background-color: black;
+            display: inline-block;
+            position: absolute;
+        }
+
+        .marker-point-x-profile-start {
+            margin-left: 138px;
+            margin-top: -7.5px;
+        }
+
+        .marker-point-x-profile-end {
+            margin-left: 799px;
+            margin-top: -7.5px;
+        }
+
+        .marker-point-x-exp-start {
+            margin-left: 128px;
+            margin-top: -7.5px;
+            width: 2px;
+        }
+
+        .marker-point-x-exp-end {
+            margin-left: 473px;
+            margin-top: -7.5px;
+        }
+
+        .marker-point-x-pro-start {
+            margin-right: 100px;
+            margin-top: -7.5px;
+        }
+
+        .marker-point-x-spl-pro-start {
+            width: 1.5px;
+            height: 12px;
+            background-color: black;
+            display: inline-block;
+            position: absolute;
+            margin-left: 295px;
+            margin-top: -7.5px;
+        }
+
+        .marker-point-x-pro-end {
+            margin-left: 473px;
+            margin-top: -7.5px;
+        }
+
+        .marker-point-x-edu-start {
+            margin-left: 105px;
+            margin-top: -7.5px;
+        }
+
+        .marker-point-x-right-end {
+            margin-left: 255px;
+            margin-top: -7.5px;
+        }
+
+        .marker-point-x-skill-start {
+            margin-left: 62px;
+            margin-top: -7.5px;
+        }
+
+        .marker-point-x-lang-start {
+            margin-left: 112px;
+            margin-top: -7.5px;
+        }
+
+        .marker-point-x-pro-start {
+            margin-left: 145px;
+            margin-top: -7.5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="name">MOHAMED NOUSHAD KILAYIL</div>
+        <div class="job-title">COST ACCOUNTANT / SALES SUPERVISOR</div>
+
+        <div class="header-bar">
+            <div class="header-item">Location : Malappuram, Kerala</div>
+            <div class="header-item">Email : noushadkilayil@gmail.com</div>
+            <div class="header-item">Phone : +91-7561004026 / +91-9961298651</div>
+        </div>
+
+        <div class="section-header">PROFILE INFO</div>
+
+        <div class="marker-point-x marker-point-x-profile-start"></div>
+        <div class="marker-point-x marker-point-x-profile-end"></div>
+        
+        <div class="profile-summary">
+            Dedicated and highly skilled Cost Accountant with over 16 years of experience in accounting, document
+            control,
+            and administration across multiple industries. Currently serving as Team Leader at Grand Tejas Thalippramba,
+            where I oversee
+            sales operations and team management. Seeking a challenging career in the corporate world as a Cost
+            Accountant / Document Controller
+            / Storekeeper / Administrator / Computer Operator / Data Entry / Sales professional where my knowledge and
+            interpersonal skills can
+            be utilized for mutual benefits.
+        </div>
+
+        <div class="content-area">
+            <div class="left-column">
+
+                <div class="section-header">EXPERIENCE</div>
+                
+                <div class="marker-point-x marker-point-x-exp-start"></div>
+                <div class="marker-point-x marker-point-x-exp-end"></div>
+                <div class="vertical-line"></div>
+                
+                <div class="experience-item">
+                    <div class="marker"></div>
+                    <div class="company-name">Grand Tejas Thalippramba, Kannur</div>
+                    <div class="position-title">Team Leader - 2023 – Present</div>
+                    <div class="company-details">Department: Sales Retail Operations</div>
+                    <ul class="bullet-list">
+                        <li>In charge of the allocated area. Achieve Daily/weekly/monthly scheduled targets (Sales and
+                            others)</li>
+                        <li>Responsible for daily reporting and promote team work</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="marker"></div>
+                    <div class="company-name">Samir Etaibi Est. (SEEC), Saudi Arabia</div>
+                    <div class="position-title">Cost Accountant - 2006 – 2022</div>
+                    <div class="company-details">Department: Engineering, Accounting Dept.</div>
+                    <ul class="bullet-list">
+                        <li>Setting up filing systems, filing important documents</li>
+                        <li>Prepare an application for payments of maintenance works in every month</li>
+                        <li>Making quotations, BOQ and calculations sheets for various projects</li>
+                        <li>Prepare supervisors & labours Monthly salary reports</li>
+                        <li>Prepare material request form to take construction materials from stores</li>
+                        <li>Making purchase requisitions and work orders for department-related purchases</li>
+                        <li>Check E-mail and handle correspondence</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="marker"></div>
+                    <div class="company-name">Arabian International Company (AIC), Saudi Arabia</div>
+                    <div class="position-title">Document Controller - 2005 – 2006</div>
+                    <div class="company-details">Department: Quality Control (QC)</div>
+                    <ul class="bullet-list">
+                        <li>Managed document control systems</li>
+                        <li>Ensured proper filing and organization of quality control documentation</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="marker"></div>
+                    <div class="company-name">Bharath Sanjar Nigam Limited (BSNL), India</div>
+                    <div class="position-title">Data Entry / Asst. Accountant - 2003 – 2005</div>
+                    <div class="company-details">Department: Accounting Dept.</div>
+                    <ul class="bullet-list">
+                        <li>Handled data entry responsibilities</li>
+                        <li>Assisted with accounting operations and documentation</li>
+                    </ul>
+                </div>
+                <div class="marker-point"></div>
+
+                <div class="section-header-end">PROFESSIONAL DEVELOPMENT</div>
+
+                <div class="marker-point-x-spl-pro-start"></div>
+                <div class="marker-point-x marker-point-x-pro-end"></div>
+                <div class="vertical-line-end"></div>
+                
+                <div class="marker-point-end-top"></div>
+
+                <div class="experience-item">
+                    <ul class="bullet-list">
+                        <li>DISM (Diploma in System Management - APTECH Computer Education)</li>
+                        <li>Computer and DTP (Desktop Publishing - KSAVRC)</li>
+                        <li>Indian Driving License (M/C with gear and LMV)</li>
+                    </ul>
+                </div>
+                <div class="marker-end"></div>
+                <br><br><br>
+            </div>
+
+            <div class="right-column">
+
+                <div class="section-header-edu">EDUCATION</div>
+                
+                <div class="marker-point-x marker-point-x-edu-start"></div>
+                <div class="marker-point-x marker-point-x-right-end"></div>
+                <div class="education-section">
+                    <div class="degree">B.Com (Bachelor of Commerce)</div>
+                    <div class="school">Calicut University, Kerala, India</div>
+                </div>
+
+                <div class="education-section">
+                    <div class="degree">P.D.C (Pre-Degree Course)</div>
+                    <div class="school">Calicut University, Kerala, India</div>
+                </div>
+
+                <div class="education-section">
+                    <div class="degree">S.S.L.C (Board of Public Examination)</div>
+                    <div class="school">Kerala, India</div>
+                </div>
+
+                <div class="section-header-skills">SKILLS</div>
+
+                <div class="marker-point-x marker-point-x-skill-start"></div>
+                <div class="marker-point-x marker-point-x-right-end"></div>
+                
+                <ul class="skills-list">
+                    <li>Financial Documentation</li>
+                    <li>Cost Analysis & Accounting</li>
+                    <li>Team Leadership</li>
+                    <li>Sales Management</li>
+                    <li>Microsoft Office Suite</li>
+                    <li>Tally Prime</li>
+                    <li>Payroll Software</li>
+                    <li>Filing Systems</li>
+                    <li>BOQ Preparation</li>
+                    <li>Purchase Requisitions</li>
+                    <li>Document Control</li>
+                    <li>Data Entry</li>
+                    <li>Administrative Support</li>
+                </ul>
+
+                <div class="section-header-skills">LANGUAGES</div>
+
+                <div class="marker-point-x marker-point-x-lang-start"></div>
+                <div class="marker-point-x marker-point-x-right-end"></div>
+                
+                <ul class="languages-list">
+                    <li>English</li>
+                    <li>Arabic</li>
+                </ul>
+                <ul class="languages-list-right">
+                    <li>Malayalam</li>
+                    <li>Hindi</li>
+                </ul>
+
+                <div class="section-header-personal">PERSONAL INFO</div>
+
+                <div class="marker-point-x marker-point-x-pro-start"></div>
+                <div class="marker-point-x marker-point-x-right-end"></div>
+                
+                <ul class="personal-info">
+                    <li>Nationality : Indian</li>
+                    <li>Date of Birth : 05/09/1979</li>
+                    <li>Religion : Islam</li>
+                    <li>Marital Status : Married</li>
+                    <li>Passport No : S9845224</li>
+                    <li>Date of Issue : 05/01/2019</li>
+                    <li>Date of Expiry : 02/01/2029</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
